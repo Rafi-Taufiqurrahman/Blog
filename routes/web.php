@@ -23,8 +23,9 @@ Auth::routes();
 Route::group([ 'as' => 'admin.','prefix' => 'admin', 'middleware' => ['auth','admin']],
 function(){
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('tag', App\Http\Livewire\Admin\Tags::class)->name('tag');
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 /* Author Route */
@@ -32,4 +33,3 @@ Route::group([ 'as' => 'author.','prefix' => 'author', 'middleware' => ['auth','
 function(){
     Route::get('dashboard', [App\Http\Controllers\Author\DashboardController::class, 'index'])->name('dashboard');
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
